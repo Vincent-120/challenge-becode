@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,EAAE,CAAA;EACE,UAAU,EAAE,MAAM;EAClB,UAAU,EAAE,IAAI;EAChB,SAAS,EAAE,IAAI;CAClB;;AACD,AAAA,CAAC,CAAA;EACG,UAAU,EAAE,MAAM;CAErB;;AACD,AAAA,IAAI,CAAA;EACA,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;CAI1B;;AAND,AAGI,IAHA,CAGA,OAAO,CAAA;EACH,UAAU,EAAE,GAAG;CAClB",
+    "sources": [
+        "../Sass/style_formSend.scss"
+    ],
+    "names": [],
+    "file": "style_formSend.css"
+}

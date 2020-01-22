@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+//!head
+.head {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+
+
+    .title {
+        align-self: center;
+        padding-top: 5vh;
+        text-align: center;
+        color: #fff;
+    }
+
+    .subtitle {
+        align-self: center;
+        color: #fff;
+        text-align: center;
+        size: 15%;
+    }
+}
+
+//! a propos
+.about {
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+
+    .container {
+        .field {
+            width: 250px;
+        }
+
+        align-self: center;
+
+        .box {
+            background-color: black;
+
+            //min-height: 50vh;
+            .columns {
+                display: flex;
+                justify-content: center;
+
+                .image {
+                    display: flex;
+                    justify-content: center;
+                    align-self: center;
+                        .pic {
+                            border-radius: 85%;
+                            margin-bottom: 15px;
+                            align-self: center;
+                            height: 200px;
+                            width: 145px;
+                        }
+                        .icone {
+                            color: white;
+                            margin-top: 10px;
+                            i{
+                                margin: 10px;
+                            }
+                        }
+                }
+
+                .info {
+                    color: #fff;
+                    padding-bottom: 0;
+                    align-self: center;
+                }
+
+
+                h2 {
+                    color: white;
+                }
+
+                ul {
+                    list-style: none;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+//! github
+.github {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    min-height: 105vh;
+    background-color: black;
+
+    .card {
+        align-self: center;
+        height: 500px;
+        width: 350px;
+        margin: 10px;
+    }
+}
+
+//! Formulaire
+.block {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+
+    .container {
+        align-self: center;
+        background-color: grey;
+
+        .field {
+            display: flex;
+            justify-content: center;
+            flex-flow: column;
+            margin: 10px;
+
+            .label {
+                text-align: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .control {
+                align-self: center;
+
+                .input {
+                    align-self: center;
+                    max-width: 20vw;
+                    margin: 5px;
+                }
+
+                .icon {
+                    display: flex;
+                    //justify-content: start;
+                }
+
+                .fas {
+                    align-items: center;
+                }
+            }
+        }
+    }
+}
+
+label {
+    color: white;
+}
+
+.choose {
+    display: flex;
+    width: 20vw;
+    text-align: center;
+    justify-content: center;
+
+    .choix {
+        align-self: center;
+        margin: 5px;
+        width: 20vw;
+        height: 5vh;
+    }
+}
+
+.but {
+    display: flex;
+    justify-content: center;
+
+    .button {
+        align-self: flex-end;
+        margin: 5px;
+    }
+}
+
+.part {
+    align-self: center;
+    position: absolute;
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: #000;
+    z-index: -1;
+}

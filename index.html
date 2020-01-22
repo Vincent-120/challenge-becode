@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!-- mettre en fr -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+
+    <title>Portfolio</title>
+</head>
+<!-- Virer les div. (section par ex) -->
+<body>
+    <!--!* particles.js container -->
+    <header class="block head">
+        <div id="particles-js" class="part"></div>
+        <h1 class="title is-1">Vincent Vissers</h1>
+        <h2 class="subtitle is-5">Create or be create</h2>
+    </header>
+    <!--!*présentation-->
+    <section class="block about">
+        <div class="container">
+            <div class="box">
+                <div class="columns">
+                    <div class="column image">
+                        <div class="content">
+                            <img class="pic" src="assets/img/Profil_img.jpg" alt="Image de profile">
+                            <a class="icone" href="https://github.com/Vincent-120">  
+                                <i class="fab fa-github fa-2x"></i> 
+                            </a>
+                            <a class="icone" href="https://www.linkedin.com/in/vincentvissers/">
+                                <i class="fab fa-linkedin fa-2x"></i>
+                            </a>
+                            <a class="icone" href="https://twitter.com/vincentvissers">
+                                <i class="fab fa-twitter fa-2x"></i> 
+                            </a>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="content is-medium">
+                            <p class="info">
+                                Passionner par l'imformatique depuis tout petit, les jeux video plus
+                                precisément je me suis lancer dans une formation de web devellopement afin de comprendre
+                                les principe du code. J'y ai decouvert une passion et une motivation a me surpasser
+                                chaque jours
+                            </p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <h2 class="title is-3">Skills</h2>
+                        <ul>
+                            <li>Html 5</li>
+                            <li>Css 3</li>
+                            <li>Sass</li>
+                            <li>Php</li>
+                            <li>ThreeJS</li>
+                            <li>React/React-native</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--!* info gitHub-->
+    <section class="block github">
+        <div class="card">
+            <div class="card-image">
+                <figure class="image is-4by3">
+                    <img src="assets/img/minijeux.png" alt="image">
+                </figure>
+            </div>
+            <div class="card-content">
+                <div class="media">
+                    <div class="media-left">
+                        <figure class="image is-48x48">
+                            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                        </figure>
+                    </div>
+                    <div class="media-content">
+                        <p class="title is-4">Le juste prix</p>
+                        <p class="subtitle is-6">@Vincent-120</p>
+                        <p>Réalisation personnel d'un jeux très connu "Le just prix".</p>
+                        <p>Dans le cadre d'un apprentissage a manipuler Javascript</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--!fin du block card-->
+        <!--todo Intégrer les repo via js-->
+        <div class="card" id="card">
+            
+        </div>
+        <!--!fin du block card-->
+        <div class="card">
+            <div class="card-image">
+                <figure class="image is-4by3">
+                    <img src="assets/img/minijeux.png" alt="image">
+                </figure>
+            </div>
+            <div class="card-content">
+                <div class="media">
+                    <div class="media-left">
+                        <figure class="image is-48x48">
+                            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                        </figure>
+                    </div>
+                    <div class="media-content">
+                        <p class="title is-4">Le juste prix</p>
+                        <p class="subtitle is-6">@Vincent-120</p>
+                        <p>Réalisation personnel d'un jeux très connu "Le just prix".</p>
+                        <p>Dans le cadre d'un apprentissage a manipuler Javascript</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--!fin du block card-->
+    </section>
+    <!--!*formulaire  -->
+    <section class="block formulair">
+        <form class="container columns" action="formSend.php" method="post">
+            <div class="field column">
+                <label class="label">Name</label>
+                <div class="control has-icons-left">
+                    <!--!zone de remplissage-->
+                    <input class="input is-medium" type="text" placeholder="First Name" name="firstName">
+                    <span class="icon is-large is-left">
+                        <i class="fas fa-user"></i>
+                    </span>
+                    <span class="help-block with-errors"></span>
+                </div>
+                <div class="control has-icons-left">
+                    <!--!zone de remplissage-->
+                    <input class="input is-medium" type="text" placeholder="last Name" name="lastName">
+                    <span class="icon is-large is-left">
+                        <i class="fas fa-user"></i>
+                    </span>
+                </div>
+                <label class="label">Email</label>
+                <div class="control has-icons-left">
+                    <!--!zone de remplissage-->
+                    <input class="input is-medium" name="email" type="email" placeholder="E-mail">
+                    <span class="icon is-large is-left">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="but">
+                <!--!button -->
+                <button class="button is-link">Envoyer</button>
+            </div>
+            <div class="field column choose">
+                <label class="label">Sexe</label>
+                <section>
+                    <input type="radio" name="sexe" value="homme" id="sexe" /> <label for="homme">Homme</label>
+                    <input type="radio" name="femme" value="femme" id="sexe" /> <label for="femme">Femme</label>
+                </section>
+                <label class="label">Pays</label>
+                <select class="choix" name="choix">
+                    <option value="disable">Selectionné(e)</option>
+                    <option value="Belgique">Belgique</option>
+                    <option value="France">France</option>
+                    <option value="Pays-Bas">Pays-Bas</option>
+                    <option value="Allemagne">Allemagne</option>
+                </select>
+                <label class="label">Subject</label>
+                <div class="control has-icons-left">
+                    <!--!zone de remplissage-->
+                    <input class="input is-medium" name="subject" type="text" placeholder="Your subject">
+                    <span class="icon is-large is-left">
+                        <i class="fas fa-question-circle"></i>
+                    </span>
+                </div>
+                <label class="label">Message</label>
+                <div class="control">
+                    <!--!zone de remplissage-->
+                    <textarea class="textarea" name="message" placeholder="Texte"></textarea>
+                </div>
+            </div>
+        </form>
+    </section>
+    <!--!*Call script -->
+    <!--!* particles.js lib - https://github.com/VincentGarreau/particles.js -->
+    <script src="particles.js"></script>
+    <script src="app.js"></script>
+    <script src="particles.min.js"></script>
+    <!--!* Font awesome-->
+    <script src="https://kit.fontawesome.com/ecb447b663.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.0.5/gsap.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+
+</body>
+
+</html>
