@@ -33,12 +33,12 @@
         
     $result = filter_input_array(INPUT_POST, $options);  
         ;
-    if ($result != null || $result != FALSE) {
+    if ($result != null && $result != FALSE) {
         
-        if ($name|| $lastname||$email||$subject|$message != FALSE) {
+        if ($name&& $lastname&&$email&&$subject&&$message != FALSE) {
 
             $bdd= new PDO('mysql:host=localhost;dbname=Formulaire','root','root');
-            $requete= $bdd->prepare('INSERT INTO `Formulair`(firstName, lastName, email, subject, message, choix, sexe) VALUES (:firstName, :lastName, :email, :subject, :message, :choix, :sexe)');
+            $requete= $bdd->prepare('INSERT INTO `Formulair`(firstName, lastName, email) VALUES (:firstName, :lastName, :email)');
             
             $requete->execute(array(
                 'firstName'=>$name,

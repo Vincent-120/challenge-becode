@@ -117,7 +117,7 @@
   color: white;
 }
 
-.github {
+#github {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -127,17 +127,53 @@
           flex-flow: row;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  min-height: 105vh;
+  min-height: 100vh;
   background-color: black;
 }
 
-.github .card {
+#github .card {
+  border-radius: 10%;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
   height: 500px;
-  width: 350px;
+  width: 300px;
   margin: 10px;
+}
+
+#github a {
+  font-size: small;
+}
+
+#github img {
+  border-radius: 10%;
+}
+
+#say {
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#say p {
+  margin: 5px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+#say #btn {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 .block {
@@ -148,16 +184,17 @@
       -ms-flex-pack: center;
           justify-content: center;
   min-height: 100vh;
+  min-width: 80vw;
 }
 
-.block .container {
+.container {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
   background-color: grey;
 }
 
-.block .container .field {
+.container .field {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -171,7 +208,7 @@
   margin: 10px;
 }
 
-.block .container .field .label {
+.container .field .label {
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -181,13 +218,13 @@
           justify-content: center;
 }
 
-.block .container .field .control {
+.container .field .control {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
 }
 
-.block .container .field .control .input {
+.container .field .control .input {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -195,13 +232,7 @@
   margin: 5px;
 }
 
-.block .container .field .control .icon {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.block .container .field .control .fas {
+.container .field .control .fas {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;

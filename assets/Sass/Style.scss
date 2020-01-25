@@ -90,27 +90,50 @@
 }
 
 //! github
-.github {
+#github {
     display: flex;
     flex-flow: row;
     justify-content: space-around;
-    min-height: 105vh;
+    min-height: 100vh;
     background-color: black;
 
     .card {
+        border-radius: 10%;
         align-self: center;
         height: 500px;
-        width: 350px;
+        width: 300px;
         margin: 10px;
+    }
+    a{
+        font-size: small;
+    }
+    img{
+        border-radius: 10%;
+    }
+}
+#say{
+    width: 100vw;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    p{
+        margin: 5px ;
+        align-self: center;
+    }
+    #btn{
+        align-self: center;
     }
 }
 
 //! Formulaire
+
 .block {
     display: flex;
     justify-content: center;
     min-height: 100vh;
-
+    min-width: 80vw;
+    
+    }
     .container {
         align-self: center;
         background-color: grey;
@@ -135,18 +158,11 @@
                     max-width: 20vw;
                     margin: 5px;
                 }
-
-                .icon {
-                    display: flex;
-                    //justify-content: start;
-                }
-
                 .fas {
                     align-items: center;
                 }
             }
         }
-    }
 }
 
 label {
@@ -176,12 +192,14 @@ label {
         margin: 5px;
     }
 }
-
+//! particules.js
 .part {
     align-self: center;
     position: absolute;
-    min-width: 100vw;
+    min-width:100vw;
     min-height: 100vh;
     background-color: #000;
     z-index: -1;
+
 }
+
