@@ -332,6 +332,9 @@ const gitHub = async () => {
 gitHub();
 
 //? Annimation Gsap
-document.getElementById('about').addEventListener('mouseover',()=>{
-    TwennMAx
+document.getElementById('icone').addEventListener('mouseout',()=>{
+    gsap.to('.fab',{scale:1,duration:1});
+})
+document.getElementById('icone').addEventListener('mouseover',()=>{
+    gsap.to('.fab',{scale:1.5,duration:1});
 })
