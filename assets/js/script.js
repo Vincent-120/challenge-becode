@@ -332,8 +332,6 @@ const gitHub = async () => {
 gitHub();
 
 //? Annimation Gsap
-document.getElementById('btn').addEventListener('click',function(){
-    TweenMax.to('#forme',1, {visibility: 'visible'});
-    document.getElementById('btn').remove('button');
-    document.getElementById('say').remove('div');
+document.getElementById('about').addEventListener('mouseover',()=>{
+    TwennMAx
 })

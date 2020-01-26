@@ -14,88 +14,65 @@
 
 
 <?php 
+echo"step1 ";
+// !donner email
+$EmailTo = "v1996.vincent@gmail.com";
+$Subject = $_POST['subject'];
+// prepare email body text
+$Body = "";
+$Body .= "\n";
+$Body .= "Prénom: ";
+$Body .= $_POST['firstName'];
+$Body .= "\n";
+$Body .= "Nom: ";
+$Body .= $_POST['lastName'];
+$Body .= "\n";
+$Body .= "sexe: ";
+$Body .= $_POST['sexe'];
+$Body .= "\n";
+$Body .= "Pays: ";
+$Body .= $_POST['choix'];
+$Body .= "\n";
+$Body .= "Email: ";
+$Body .= $_POST['email'];
+$Body .= "\n";
+$Body .= "Message: ";
+$Body .= $_POST['message'];
+$Body .= "\n";
+// send email
+$success = mail($EmailTo, $Subject, $Body, "From:".$email);
+// !teste 2
+if ($success){
+    echo"step2 ";
 
-    $name=$_POST['firstName'];
-    $lastname=$_POST['lastName'];
-    $email=$_POST['email'];
-    $subject=$_POST['subject'];
-    $message=$_POST['message'];
-    $choix=$_POST['choix'];
-    $sexe=$_POST['sexe'];
-    
-    $options = array(
-        'name' 	=> FILTER_SANITIZE_STRING,
-        'lastname' 	=> FILTER_SANITIZE_STRING,
-        'email' 		=> FILTER_VALIDATE_EMAIL,
-        'subject' 		=> FILTER_SANITIZE_STRING,
-        'message' 		=> FILTER_SANITIZE_STRING
-    );
-        
-    $result = filter_input_array(INPUT_POST, $options);  
-        ;
-    if ($result != null && $result != FALSE) {
-        
-        if ($name&& $lastname&&$email&&$subject&&$message != FALSE) {
+    $dbh = new PDO("mysql:host=localhost;dbname=formulaire;charset=utf8", 'root','root');
 
-            $bdd= new PDO('mysql:host=localhost;dbname=Formulaire','root','root');
-            $requete= $bdd->prepare('INSERT INTO `Formulair`(firstName, lastName, email) VALUES (:firstName, :lastName, :email)');
-            
-            $requete->execute(array(
-                'firstName'=>$name,
-                'lastName'=>$lastname,
-                'email'=>$email,
-                'subject'=>$subject,
-                'message'=>$message,
-                'choix'=>$choix,
-                'sexe'=>$sexe
-            ));
+    echo"step3 ";
 
-            
-            $EmailTo = "v1996.vincent@gmail.com";
-            $Subject = $subject;
-            // prepare email body text
-            $Body = "";
-            $Body .= "\n";
-            $Body .= "Prénom: ";
-            $Body .= $name;
-            $Body .= "\n";
-            $Body .= "Nom: ";
-            $Body .= $lastname;
-            $Body .= "\n";
-            $Body .= "sexe: ";
-            $Body .= $sexe;
-            $Body .= "\n";
-            $Body .= "Pays: ";
-            $Body .= $choix;
-            $Body .= "\n";
-            $Body .= "Email: ";
-            $Body .= $email;
-            $Body .= "\n";
-            $Body .= "Message: ";
-            $Body .= $message;
-            $Body .= "\n";
-            // send email
-            $success = mail($EmailTo, $Subject, $Body, "From:".$email);
-            // redirect to success page
-            if ($success){
-                echo "<h1>Merci !</h1>
-                <p>Formulaire completer, il a bien été envoyé.</p>";
-            }else{
-                echo "Something went wrong :(";
-            }
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        }
+    echo"step4 ";
 
-        else{
-            
-            echo "<h1><strong>Oups !</strong></h1>
-            <p>Le formulaire n'as pas pu etre envoyer. </p>
-            <p>Veuillez ré-éssayé</p>";
-            
-        }
+    $stmt = $dbh->prepare(`INSERT INTO 'Formulair' (email,  name, company, country, comments) VALUES (:name,:lastname, :email)`);
+
+    echo"step5 ";
+
+    $stmt -> bindParam(':name', $_POST["firstName"]);
+    $stmt -> bindParam(':lastname', $_POST["lastName"]);
+    $stmt -> bindParam(':email', $_POST["email"]);
+
+    echo"step6 ";
+
+    if($stmt){
+        echo "<h1>Merci !</h1>
+    <p>Formulaire completer, il a bien été envoyé.</p>";
     }
-
-    
+}
+else{        
+    echo "<h1><strong>Oups !</strong></h1>
+        <p>Le formulaire n'as pas pu etre envoyer. </p>
+        <p>Veuillez ré-éssayé</p>";
+}
 ?>
 <div class='but'> <a href='index.html' class='button is-link'> Revenir a l'acceuille</a> </div>
 </body>
