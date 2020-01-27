@@ -15,63 +15,65 @@
 
 <?php 
 echo"step1 ";
-// !donner email
-$EmailTo = "v1996.vincent@gmail.com";
-$Subject = $_POST['subject'];
-// prepare email body text
-$Body = "";
-$Body .= "\n";
-$Body .= "Prénom: ";
-$Body .= $_POST['firstName'];
-$Body .= "\n";
-$Body .= "Nom: ";
-$Body .= $_POST['lastName'];
-$Body .= "\n";
-$Body .= "sexe: ";
-$Body .= $_POST['sexe'];
-$Body .= "\n";
-$Body .= "Pays: ";
-$Body .= $_POST['choix'];
-$Body .= "\n";
-$Body .= "Email: ";
-$Body .= $_POST['email'];
-$Body .= "\n";
-$Body .= "Message: ";
-$Body .= $_POST['message'];
-$Body .= "\n";
-// send email
-$success = mail($EmailTo, $Subject, $Body, "From:".$email);
-// !teste 2
-if ($success){
+$email=$_POST['email'];
+$options = array(
+    'firstName' 	=> FILTER_SANITIZE_STRING,
+    'lastName' 	=> FILTER_SANITIZE_STRING,
+    'email' 		=> FILTER_VALIDATE_EMAIL,
+    'subject' 		=> FILTER_SANITIZE_STRING,
+    'message' 		=> FILTER_SANITIZE_STRING);
+try {
     echo"step2 ";
-
-    $dbh = new PDO("mysql:host=localhost;dbname=formulaire;charset=utf8", 'root','root');
-
+    // !donner email
+    $EmailTo = "v1996.vincent@gmail.com";
+    $Subject = $_POST['subject'];
+    // prepare email body text
+    $Body = "";
+    $Body .= "\n";
+    $Body .= "Prénom: ";
+    $Body .= $_POST['firstName'];
+    $Body .= "\n";
+    $Body .= "Nom: ";
+    $Body .= $_POST['lastName'];
+    $Body .= "\n";
+    $Body .= "sexe: ";
+    $Body .= $_POST['sexe'];
+    $Body .= "\n";
+    $Body .= "Pays: ";
+    $Body .= $_POST['choix'];
+    $Body .= "\n";
+    $Body .= "Email: ";
+    $Body .= $_POST['email'];
+    $Body .= "\n";
+    $Body .= "Message: ";
+    $Body .= $_POST['message'];
+    $Body .= "\n";
+    // send email
+    $success = mail($EmailTo, $Subject, $Body, "From:".$email);
     echo"step3 ";
-
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    echo"step4 ";
-
-    $stmt = $dbh->prepare(`INSERT INTO 'Formulair' (email,  name, company, country, comments) VALUES (:name,:lastname, :email)`);
-
-    echo"step5 ";
-
-    $stmt -> bindParam(':name', $_POST["firstName"]);
-    $stmt -> bindParam(':lastname', $_POST["lastName"]);
-    $stmt -> bindParam(':email', $_POST["email"]);
-
-    echo"step6 ";
-
-    if($stmt){
-        echo "<h1>Merci !</h1>
-    <p>Formulaire completer, il a bien été envoyé.</p>";
+    // insert into db
+    if ($success){
+        echo"step4 ";
+        $dbh = new PDO("mysql:host=localhost;dbname=formulaire;charset=utf8", 'user','user');
+        $stmt = $dbh->prepare('INSERT INTO Formulair (firstName, lastName, email) VALUES (:name,:lastname, :email)');
+        $stmt->execute(array(
+            'name'=>$_POST["firstName"],
+            'lastname'=>$_POST["lastName"],
+            'email'=>$_POST["email"]
+        ));
+        if($stmt){
+            echo "<h1>Merci !</h1>
+        <p>Formulaire completer, il a bien été envoyé.</p>";
+        }
     }
-}
-else{        
-    echo "<h1><strong>Oups !</strong></h1>
-        <p>Le formulaire n'as pas pu etre envoyer. </p>
-        <p>Veuillez ré-éssayé</p>";
+    else{        
+        echo "<h1><strong>Oups !</strong></h1>
+            <p>Le formulaire n'as pas pu etre envoyer. </p>
+            <p>Veuillez ré-éssayé</p>";
+    }
+} 
+catch (Exception $e) {
+    die('Erreur : ' .$e->getMessage());
 }
 ?>
 <div class='but'> <a href='index.html' class='button is-link'> Revenir a l'acceuille</a> </div>
