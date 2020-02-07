@@ -244,7 +244,7 @@ var pJS = function(tag_id, params){
     this.radius = (pJS.particles.size.random ? Math.random() : 1) * pJS.particles.size.value;
     if(pJS.particles.size.anim.enable){
       this.size_status = false;
-      this.vs = pJS.particles.size.anim.speed / 100;
+      this.vs = pJS.particles.size.anim.speed / 10000;
       if(!pJS.particles.size.anim.sync){
         this.vs = this.vs * Math.random();
       }
@@ -356,9 +356,9 @@ var pJS = function(tag_id, params){
       this.vy = velbase.y + Math.random()-0.5;
     }
 
-    // var theta = 2.0 * Math.PI * Math.random();
-    // this.vx = Math.cos(theta);
-    // this.vy = Math.sin(theta);
+     var theta = 2.0 * Math.PI * Math.random();
+     this.vx = Math.cos(theta);
+     this.vy = Math.sin(theta);
 
     this.vx_i = this.vx;
     this.vy_i = this.vy;

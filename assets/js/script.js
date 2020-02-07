@@ -332,9 +332,22 @@ const gitHub = async () => {
 gitHub();
 
 //? Annimation Gsap
-document.getElementById('icone').addEventListener('mouseout',()=>{
-    gsap.to('.fab',{scale:1,duration:1});
-})
-document.getElementById('icone').addEventListener('mouseover',()=>{
-    gsap.to('.fab',{scale:1.5,duration:1});
-})
+const addclass = (el) =>{
+    el.classList.add('scale');
+} 
+const removeclass=(el)=>{
+    el.classList.remove('scale')
+}
+const div = document.getElementsByClassName('icone')
+const logo = document.getElementsByClassName('fab')
+for (let i = 0; i < div.length; i++) {
+    console.log(div[i])
+    div[i].addEventListener('mouseout',()=>{
+        removeclass(logo[i])
+        gsap.to('.fab',{scale:1,duration:1});
+    })
+    div[i].addEventListener('mouseover',()=>{
+        addclass(logo[i])
+        gsap.to('.scale',{scale:1.5,duration:1});
+    })
+}
