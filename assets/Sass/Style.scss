@@ -38,9 +38,6 @@
         .field {
             width: 250px;
         }
-
-        align-self: center;
-
         .box {
             background-color: black;
 
@@ -64,6 +61,8 @@
                             color: white;
                             margin-top: 10px;
                             i{
+                                height: 20px;
+                                width: 20px;
                                 margin: 10px;
                             }
                         }
@@ -83,6 +82,7 @@
                 ul {
                     list-style: none;
                     color: white;
+                    font-size: 30px;
                 }
             }
         }

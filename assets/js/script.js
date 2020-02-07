@@ -341,7 +341,6 @@ const removeclass=(el)=>{
 const div = document.getElementsByClassName('icone')
 const logo = document.getElementsByClassName('fab')
 for (let i = 0; i < div.length; i++) {
-    console.log(div[i])
     div[i].addEventListener('mouseout',()=>{
         removeclass(logo[i])
         gsap.to('.fab',{scale:1,duration:1});
