@@ -55,7 +55,7 @@ try {
     if ($success){
         echo"step4 ";
         $dbh = new PDO("mysql:host=localhost;dbname=id12378607_formulaire;charset=utf8", 'id12378607_root','vincent');
-        $stmt = $dbh->prepare('INSERT INTO Formulair (firstName, lastName, email) VALUES (:name,:lastname, :email)');
+        $stmt = $dbh->prepare('INSERT INTO Formulair (`prenom`, `nom`, `email`) VALUES (:`name`, `:lastname`, `:email`)');
         $stmt->execute(array(
             'name'=>$_POST["firstName"],
             'lastname'=>$_POST["lastName"],

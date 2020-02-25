@@ -65,7 +65,8 @@ const gitHub = async () => {
     const url = "https://api.github.com/users/Vincent-120/repos";
     const reponse = await fetch(url);
     const result = await reponse.json();
-    console.log('fetch reussi')
+    console.log(result);
+    console.log('fetch reussi',result);
     result.forEach(index => {
         if(index==result[1]){
             const descriptionText =  index.description;
@@ -154,7 +155,7 @@ const gitHub = async () => {
                 parentDiv = uril
             )
         }
-        else if (index == result[14]){
+        else if (index == result[15]){
             const descriptionText =  index.description;
             const subtitle = index.created_at;
             const title = index.name
@@ -254,8 +255,8 @@ const gitHub = async () => {
             // //!figure
             createFigure(
                 className = ['image', 'is-4by3'],
-                src = 'assets/img/projetFormulaire.png',
-                alt = 'Petit representation du travaille',
+                src = 'assets/img/projetformulaire.png',
+                alt = 'representation du travaille',
                 parentDiv = 'card-image2'
             )
         
@@ -338,15 +339,38 @@ const addclass = (el) =>{
 const removeclass=(el)=>{
     el.classList.remove('scale')
 }
-const div = document.getElementsByClassName('icone')
-const logo = document.getElementsByClassName('fab')
+let div = document.getElementsByClassName('icone')
+let logo = document.getElementsByClassName('fab')
 for (let i = 0; i < div.length; i++) {
+    div[i].addEventListener('mouseover',()=>{
+        addclass(logo[i])
+        gsap.to('.scale',{scale:1.5,duration:1});
+    })
     div[i].addEventListener('mouseout',()=>{
         removeclass(logo[i])
         gsap.to('.fab',{scale:1,duration:1});
     })
-    div[i].addEventListener('mouseover',()=>{
-        addclass(logo[i])
+}
+// API wakatime
+// const Waka = () =>{
+//     const url = "https://api.github.com/users/Vincent-120/repos";
+//         const rep = await fetch(url);
+//         const retur = await reponse.json();
+//         console.log(retur);
+//         console.log('fetch reussi',retur);
+//         result.forEach
+
+// }
+//! annimation gsap 2
+let div2 = document.getElementsByClassName('icone2')
+let logo2 = document.getElementsByClassName('lg')
+for (let i = 0; i < div2.length; i++) {
+    div2[i].addEventListener('mouseover',()=>{
+        addclass(logo2[i])
         gsap.to('.scale',{scale:1.5,duration:1});
+    })
+    div2[i].addEventListener('mouseout',()=>{
+        removeclass(logo2[i])
+        gsap.to('.lg',{scale:1,duration:1});
     })
 }
